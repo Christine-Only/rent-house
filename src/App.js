@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
+import City from './pages/city/City'
+import Home from './pages/home/Home.js'
+import Map from './pages/map/Map'
+import NotFound from './pages/404/NotFound'
+import 'antd-mobile/dist/antd-mobile.css'
+import './assets/fonts/iconfont.css'
+import './index.scss'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="app">
+          <Switch>
+            <Redirect exact from="/" to="/home" />
+            <Route path="/home" component={Home} />
+            <Route path="/city" component={City} />
+            <Route path="/map" component={Map} />
+            <Route component={NotFound} />
+          </Switch>
+        </div>
+      </BrowserRouter>
+    )
+  }
 }
 
-export default App;
+export default App
