@@ -6,12 +6,12 @@
 - 其他组件库： react-virtualized、formik、react-spring等
 - 百度地图API
 
-
-/src                 开发目录
-/assets          资源文件，图片、字体等 
-/common          公共的组件
-/pages           页面组件
-/utils           工具性的函数
-App.js           根组件
-index.css        全局样式
-index.js         入口文件
+## 目录结构
+- /src                 开发目录
+- /assets          资源文件，图片、字体等 
+- /common          公共的组件
+- /pages           页面组件
+- /utils           工具性的函数
+- App.js           根组件
+- index.css        全局样式
+- index.js         入口文件
