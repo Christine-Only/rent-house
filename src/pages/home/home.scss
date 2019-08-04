@@ -1,8 +1,10 @@
 .home {
+  padding-bottom: 50px;
   .tab-bar {
     position: fixed;
     bottom: 0;
     height: 50px;
     width: 100%;
+    z-index: 2;
   }
 }
