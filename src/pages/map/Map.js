@@ -25,9 +25,12 @@ class Map extends React.Component {
     const point = new BMap.Point(121.61887341233741, 31.040603951746952)
     // 初始化地图，设置中心点坐标和地图级别
     map.centerAndZoom(point, 18)
-    // 创建标注
-    let marker = new BMap.Marker(point)
-    map.addOverlay(marker)
+    const myCity = new BMap.LocalCity()
+    myCity.get(result => {
+      let cityName = result.name
+      map.setCenter(cityName)
+      alert('当前定位城市:' + cityName)
+    })
   }
 }
 

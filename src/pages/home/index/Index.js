@@ -150,6 +150,32 @@ class Index extends React.Component {
       </>
     )
   }
+  renderNews() {
+    return (
+      <>
+        <h3 className="messages-title">最新资讯</h3>
+        {this.state.news.map(item => (
+          <div className="news-item" key={item.id}>
+            <div className="imgwrap">
+              <img
+                className="img"
+                src={`http://localhost:8080${item.imgSrc}`}
+                alt=""
+              />
+            </div>
+            <Flex className="content" direction="column" justify="between">
+              <h3 className="title">{item.title}</h3>
+              <Flex className="info" justify="between">
+                <span>{item.from}</span>
+                <span>{item.date}</span>
+              </Flex>
+            </Flex>
+          </div>
+        ))}
+      </>
+    )
+  }
+
   render() {
     return (
       <div className="index">
@@ -159,7 +185,10 @@ class Index extends React.Component {
           {/* 搜索框 */}
           <Flex className="search-box">
             <Flex className="search-form">
-              <div className="location">
+              <div
+                className="location"
+                onClick={() => this.props.history.push('/city')}
+              >
                 <span className="name">上海</span>
                 <i className="iconfont icon-arrow"> </i>
               </div>
@@ -180,27 +209,7 @@ class Index extends React.Component {
         {/* 租房小组 */}
         <div className="group">{this.renderGroup()}</div>
         {/* 最新资讯 */}
-        <div className="messages">
-          <h3 className="messages-title">最新资讯</h3>
-          {this.state.news.map(item => (
-            <div className="news-item" key={item.id}>
-              <div className="imgwrap">
-                <img
-                  className="img"
-                  src={`http://localhost:8080${item.imgSrc}`}
-                  alt=""
-                />
-              </div>
-              <Flex className="content" direction="column" justify="between">
-                <h3 className="title">{item.title}</h3>
-                <Flex className="info" justify="between">
-                  <span>{item.from}</span>
-                  <span>{item.date}</span>
-                </Flex>
-              </Flex>
-            </div>
-          ))}
-        </div>
+        <div className="messages">{this.renderNews()}</div>
       </div>
     )
   }
